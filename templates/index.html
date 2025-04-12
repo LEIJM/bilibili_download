@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilibili 下载器</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <h1>Bilibili 下载器</h1>
+
+    <div id="download-form">
+        <label for="url">URL 或 BV 号:</label>
+        <input type="text" id="url" name="url" placeholder="请输入 Bilibili 视频 URL 或 BV 号" aria-describedby="url-help">
+        <small id="url-help" class="help-text"></small>
+
+        <label for="type">下载类型:</label>
+        <select id="type" name="type">
+            <option value="video">视频</option>
+            <option value="audio">音频</option>
+        </select>
+
+        <label for="mp3_conversion">转换为 MP3:
+            <input type="checkbox" id="mp3_conversion" name="mp3_conversion">
+        </label>
+
+        <br>
+        <button id="download-button">下载</button>
+        <div id="message"></div>
+    </div>
+
+    <div id="file-list">
+        <h2>已下载文件</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>文件名</th>
+                    <th>大小</th>
+                    <th>下载日期</th>
+                    <th>修改日期</th>
+                    <th>下载</th>
+                </tr>
+            </thead>
+            <tbody id="file-list-body">
+                <!-- 文件列表将在这里动态生成 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
